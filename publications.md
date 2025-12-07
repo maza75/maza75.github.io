@@ -6,87 +6,41 @@ order: 2
 ---
 
 <style>
-  /* --- CUSTOM STYLES FOR PUBLICATIONS --- */
+  /* --- PUBLICATIONS STYLES --- */
   h2 { color: #003366; }
-  h3 { 
-    color: #003366; 
-    border-bottom: 2px solid #eee; 
-    padding-bottom: 10px; 
-    margin-top: 40px;
-  }
+  h3 { color: #003366; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
   
   .publication-item { margin-bottom: 40px; }
 
-  .paper-title { 
-    font-size: 1.2em; 
-    font-weight: bold; 
-    color: #003366; 
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  .authors { 
-    color: #444; 
-    font-style: italic; 
-    margin-bottom: 10px; 
-  }
+  .paper-title { font-size: 1.2em; font-weight: bold; color: #003366; display: block; margin-bottom: 5px; }
+  
+  .authors { color: #444; font-style: italic; margin-bottom: 10px; }
   .authors strong { color: #000; text-decoration: underline; }
 
-  .journal-info { 
-    color: #005b96; 
-    font-weight: bold; 
-    font-size: 0.95em; 
-    margin-bottom: 10px;
-  }
+  .journal-info { color: #005b96; font-weight: bold; font-size: 0.95em; margin-bottom: 10px; }
 
-  /* --- LINK BUTTON STYLES --- */
+  /* Link Buttons */
   .links { margin-top: 10px; margin-bottom: 15px;}
   .links a { 
-    background-color: #003366; /* Solid Blue Background */
-    color: white !important;   /* White Text */
-    font-weight: bold; 
-    font-size: 0.85em; 
-    margin-right: 10px; 
-    text-decoration: none;
-    padding: 5px 12px;         /* Bigger padding for button feel */
-    border-radius: 4px;
-    display: inline-block;
-    transition: all 0.3s ease;
+    background-color: #003366; color: white !important; font-weight: bold; 
+    font-size: 0.85em; margin-right: 10px; text-decoration: none;
+    padding: 5px 12px; border-radius: 4px; display: inline-block; transition: all 0.3s ease;
   }
-  .links a:hover { 
-    background-color: #d35400; /* Orange on hover */
-    color: white !important; 
-    text-decoration: none;
-  }
+  .links a:hover { background-color: #d35400; }
 
   /* Highlight Box */
   .highlights { 
-    background-color: #f8f9fa; 
-    padding: 15px; 
-    border-left: 4px solid #d35400; 
-    font-size: 0.95em; 
-    margin-top: 15px; 
-    color: #333;
-    line-height: 1.6;
+    background-color: #f8f9fa; padding: 15px; border-left: 4px solid #d35400; 
+    font-size: 0.95em; margin-top: 15px; color: #333; line-height: 1.6;
   }
   .highlights strong { color: #003366; }
 
-  /* Navigation Button Style */
+  /* Navigation Button */
   .nav-btn {
-    display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid #003366;
-    color: #003366;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-bottom: 20px;
+    display: inline-block; padding: 8px 16px; border: 1px solid #003366;
+    color: #003366; border-radius: 4px; text-decoration: none; font-weight: bold; margin-bottom: 20px;
   }
-  .nav-btn:hover {
-    background-color: #003366;
-    color: white;
-    text-decoration: none;
-  }
+  .nav-btn:hover { background-color: #003366; color: white; text-decoration: none; }
 </style>
 
 <a href="/" class="nav-btn">← Back to Home</a>
@@ -118,7 +72,6 @@ Here is a list of my research contributions in Observational Cosmology.
     We utilized <em>Gaussian Process Regression (GP)</em> and <em>Artificial Neural Networks (ANN)</em> to study the interaction between dark matter and dark energy without assuming fixed models.
     <ul>
       <li><strong>Data Used:</strong> Cosmic Chronometers (CC) and Pantheon+ Supernovae Type Ia.</li>
-      <li><strong>Objective:</strong> Investigated signs of interaction in the dark sector to understand cosmic evolution.</li>
       <li><strong>Outcome:</strong> Examined the dependency of this interaction on the dark energy equation-of-state parameter.</li>
     </ul>
   </div>
@@ -141,9 +94,8 @@ Here is a list of my research contributions in Observational Cosmology.
     <strong>🔍 Research Highlights:</strong><br>
     In this article, we reconstructed the dark matter equation of state (DM EoS) using non-parametric and model-independent approaches.
     <ul>
-      <li><strong>Data Used:</strong> Cosmic Chronometers, Pantheon+ Supernovae, and BAO (DESI DR1 & DR2).</li>
       <li><strong>Objective:</strong> Tested whether dark matter exhibits "non-cold" behavior (small pressure) rather than being completely pressureless.</li>
-      <li><strong>Outcome:</strong> Findings suggest that while evidence for a dynamic DM EoS is mild, it cannot be fully ruled out, pointing to necessary refinements in the standard model.</li>
+      <li><strong>Outcome:</strong> Findings suggest that while evidence for a dynamic DM EoS is mild, it cannot be fully ruled out.</li>
     </ul>
   </div>
 </div>
