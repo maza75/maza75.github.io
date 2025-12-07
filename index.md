@@ -5,13 +5,51 @@ order: 1
 ---
 
 <style>
-  /* --- CUSTOM STYLES FOR HOME --- */
+  /* --- GLOBAL COLORS --- */
   h1, h2, h3 { color: #003366; } 
   strong { color: #005b96; } 
   a { color: #d35400; text-decoration: none; } 
   a:hover { text-decoration: underline; }
-  
-  /* Tech Tag Styling */
+
+  /* --- HERO BANNER (The Image Section) --- */
+  .hero-banner {
+    /* Space Image with Dark Blue Overlay */
+    background-image: linear-gradient(rgba(0, 15, 50, 0.7), rgba(0, 15, 50, 0.7)), url('https://images.unsplash.com/photo-1462331940025-496dfa712568?q=80&w=2560&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    color: white; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Force white text inside the banner */
+  .hero-banner h1 {
+    color: white !important;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  .hero-banner p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #f0f0f0;
+  }
+  .hero-banner strong { color: #82cfff !important; } /* Light blue accents */
+
+  /* --- RESEARCH BOX --- */
+  .box {
+    background-color: #fafafa;
+    border-left: 5px solid #003366;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  /* --- TECH TAGS (Skills) --- */
   .tech-tag {
     background-color: #f0f5f9;
     padding: 3px 8px;
@@ -24,48 +62,35 @@ order: 1
     display: inline-block;
     margin-bottom: 5px;
   }
-  
-  .box {
-    background-color: #fafafa;
-    border-left: 5px solid #003366;
-    padding: 15px;
-    margin-bottom: 20px;
-  }
 
   /* --- BUTTON STYLE --- */
-  .btn-container {
-    text-align: center; /* Centers the button */
-    margin: 30px 0;     /* Adds space above and below */
-  }
-
+  .btn-container { text-align: center; margin: 30px 0; }
   .btn-pub {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #003366; /* Dark Blue */
-    color: white !important;   /* Force Text White */
+    background-color: #003366; 
+    color: white !important; 
     border-radius: 5px;
     font-weight: bold;
     font-size: 1.1em;
     text-decoration: none !important;
     transition: background-color 0.3s ease;
-    border: 2px solid #003366; /* Fixes visibility issues */
+    border: 2px solid #003366;
   }
-
   .btn-pub:hover {
-    background-color: #d35400; /* Turns Orange on Hover */
+    background-color: #d35400; 
     border-color: #d35400;
     color: white !important;
-    text-decoration: none;
   }
 </style>
 
-## Hi, I'm Mazaharul Abedin 👋
-
-**PhD Research Scholar | Department of Mathematics | Presidency University, Kolkata**
-
-I am a cosmological researcher working under the guidance of **Dr. Supriya Pan**. My work sits at the intersection of **theoretical physics** and **astronomical observations**, exploring the underlying fabric of the Universe.
-
-I specialize in using data-driven techniques to reconstruct the cosmic expansion history and investigate the mystery of **Dark Energy** and deviations from the standard ΛCDM model.
+<div class="hero-banner">
+  <h1>Hi, I'm Mazaharul Abedin 👋</h1>
+  <p>
+    <strong>PhD Research Scholar | Department of Mathematics | Presidency University, Kolkata</strong><br><br>
+    I am a cosmological researcher working under the guidance of <strong>Dr. Supriya Pan</strong>. My work sits at the intersection of <strong>theoretical physics</strong> and <strong>astronomical observations</strong>. I specialize in using data-driven techniques to investigate the mystery of <strong>Dark Energy</strong>.
+  </p>
+</div>
 
 ---
 
@@ -103,3 +128,7 @@ I blend rigorous mathematics with modern computation. My workflow involves Bayes
 <span class="tech-tag">CLASS</span> <span class="tech-tag">MontePython</span> <span class="tech-tag">Cobaya</span> <span class="tech-tag">Colfi</span> <span class="tech-tag">emcee</span>
 
 ---
+
+### 📬 Contact Me
+* **Email:** [mazaharul.rs@presiuniv.ac.in](mailto:mazaharul.rs@presiuniv.ac.in)
+* **GitHub:** [github.com/maza75](https://github.com/maza75)
