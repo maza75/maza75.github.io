@@ -15,9 +15,7 @@ order: 2
     margin-top: 40px;
   }
   
-  .publication-item {
-    margin-bottom: 40px;
-  }
+  .publication-item { margin-bottom: 40px; }
 
   .paper-title { 
     font-size: 1.2em; 
@@ -30,39 +28,38 @@ order: 2
   .authors { 
     color: #444; 
     font-style: italic; 
-    margin-bottom: 5px; 
+    margin-bottom: 10px; 
   }
-
-  /* Make your name bold automatically */
-  .authors strong {
-    color: #000;
-    text-decoration: underline;
-  }
+  .authors strong { color: #000; text-decoration: underline; }
 
   .journal-info { 
     color: #005b96; 
     font-weight: bold; 
     font-size: 0.95em; 
+    margin-bottom: 10px;
   }
 
-  .links { margin-top: 8px; }
+  /* --- LINK BUTTON STYLES --- */
+  .links { margin-top: 10px; margin-bottom: 15px;}
   .links a { 
-    color: #d35400; 
+    background-color: #003366; /* Solid Blue Background */
+    color: white !important;   /* White Text */
     font-weight: bold; 
-    font-size: 0.9em; 
-    margin-right: 15px; 
+    font-size: 0.85em; 
+    margin-right: 10px; 
     text-decoration: none;
-    border: 1px solid #d35400;
-    padding: 2px 8px;
+    padding: 5px 12px;         /* Bigger padding for button feel */
     border-radius: 4px;
+    display: inline-block;
     transition: all 0.3s ease;
   }
   .links a:hover { 
-    background-color: #d35400; 
-    color: white; 
+    background-color: #d35400; /* Orange on hover */
+    color: white !important; 
+    text-decoration: none;
   }
 
-  /* Highlight Box for Research Summary */
+  /* Highlight Box */
   .highlights { 
     background-color: #f8f9fa; 
     padding: 15px; 
@@ -131,3 +128,9 @@ Here is a list of my research contributions in Observational Cosmology.
     </ul>
   </div>
 </div>
+
+---
+
+<p style="text-align: center; margin-top: 50px;">
+  <a href="#" style="background-color: #d35400; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">View Google Scholar Profile</a>
+</p>
