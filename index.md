@@ -9,7 +9,7 @@ order: 1
 
   /* --- 🌌 GLOBAL SYSTEM SETTINGS 🌌 --- */
   html, body {
-    overflow-x: hidden; /* Prevents side-scrolling on phone */
+    overflow-x: hidden;
     max-width: 100%;
   }
 
@@ -18,7 +18,7 @@ order: 1
     background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
     color: #a8b2d1;
     font-family: 'Space Mono', monospace;
-    cursor: crosshair; /* Sci-Fi Cursor */
+    cursor: crosshair;
   }
 
   /* --- CRT SCANLINE OVERLAY --- */
@@ -33,15 +33,12 @@ order: 1
   }
 
   /* --- 📱 RESPONSIVE LAYOUT LOGIC 📱 --- */
-  
-  /* DEFAULT (Mobile First) */
   .wrapper { 
     width: 95% !important; 
     padding: 0 10px !important; 
     max-width: 100% !important;
   }
 
-  /* LAPTOP (Screens wider than 1000px) */
   @media screen and (min-width: 1000px) {
     .wrapper { 
       max-width: 1400px !important; 
@@ -68,7 +65,7 @@ order: 1
   h1, h2, h3 { 
     font-family: 'Orbitron', sans-serif; 
     text-transform: uppercase;
-    letter-spacing: 2px; /* Reduced slightly for mobile safety */
+    letter-spacing: 2px;
   }
   
   h1 { 
@@ -77,7 +74,7 @@ order: 1
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 10px rgba(0,210,255,0.5));
-    font-size: 2em; /* Default Mobile Size */
+    font-size: 2em;
     line-height: 1.2;
   }
 
@@ -91,7 +88,7 @@ order: 1
   .hero-panel {
     background: rgba(10, 10, 15, 0.8);
     border: 1px solid #333;
-    padding: 30px 15px; /* Smaller padding for mobile */
+    padding: 30px 15px;
     border-radius: 20px;
     text-align: center;
     position: relative;
@@ -99,7 +96,6 @@ order: 1
     margin-bottom: 40px;
   }
 
-  /* Rotating Border Effect */
   .hero-panel::before {
     content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
     background: linear-gradient(45deg, #ff00ff, #000, #00d2ff, #000);
@@ -110,7 +106,6 @@ order: 1
   }
   @keyframes glowing { 0% { background-position: 0 0; } 50% { background-position: 400% 0; } 100% { background-position: 0 0; } }
 
-  /* Typewriter Effect Container */
   .typewriter {
     display: inline-block;
     margin: 0 auto;
@@ -156,7 +151,7 @@ order: 1
     transition: 0.3s;
     text-decoration: none;
     border-bottom: 2px solid #00d2ff;
-    display: inline-block; /* Fix for mobile buttons */
+    display: inline-block;
     margin-top: 10px;
   }
   .cyber-btn:hover {
@@ -177,57 +172,64 @@ order: 1
   }
   .warning-icon { font-size: 2em; display: block; margin-bottom: 10px; }
 
-  /* --- 📡 BEACON --- */
+  /* --- 📡 BLING BLING SIGNAL BEACON --- */
   .signal-beacon {
-    position: fixed; bottom: 20px; right: 20px; /* Adjusted for mobile */
-    width: 50px; height: 50px;
-    background: #ff00ff;
+    position: fixed; bottom: 20px; right: 20px;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle, #ff55ff 10%, #ff00ff 100%); /* Shiny Gradient */
     border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
-    box-shadow: 0 0 20px #ff00ff;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px rgba(255, 0, 255, 0.4);
     z-index: 10000;
-    border: none;
+    border: 2px solid white;
+    animation: bounce 2s infinite ease-in-out;
   }
-  .signal-beacon:hover { transform: scale(1.1); background: #fff; }
-  .icon-svg { width: 25px; fill: #000; }
+  
+  /* The Ripple Effect (Radar Ping) */
+  .signal-beacon::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    border: 2px solid #ff00ff;
+    animation: ripple 1.5s infinite ease-out;
+    z-index: -1;
+  }
 
-  /* --- 📱 MOBILE-SPECIFIC TWEAKS 📱 --- */
+  .signal-beacon:hover { 
+    transform: scale(1.1); 
+    background: #fff; 
+    border-color: #ff00ff;
+  }
+  .signal-beacon:hover .icon-svg { fill: #ff00ff; }
+  
+  .icon-svg { width: 30px; fill: #fff; transition: 0.3s; }
+
+  /* --- ANIMATIONS --- */
+  @keyframes ripple {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* --- 📱 MOBILE SPECIFIC --- */
   @media screen and (max-width: 768px) {
-    /* Stack the HUD bar vertically on phone */
-    .hud-bar { 
-      flex-direction: column; 
-      text-align: center; 
-      gap: 5px; 
-    }
-    
-    /* Make Hero text smaller */
+    .hud-bar { flex-direction: column; text-align: center; gap: 5px; }
     h1 { font-size: 1.8em; }
     .hero-panel p { font-size: 0.95em; }
-
-    /* Disable Typewriter Animation on Mobile (Prevents text cutting off) */
-    .typewriter p {
-      white-space: normal; /* Allow text to wrap */
-      border: none;
-      animation: none;
-    }
-
-    /* Stack toolkit items */
-    .toolkit-span {
-      display: block !important;
-      margin: 5px auto !important;
-      width: 80%;
-    }
+    .typewriter p { white-space: normal; border: none; animation: none; }
+    .toolkit-span { display: block !important; margin: 5px auto !important; width: 80%; }
   }
 
   @media screen and (min-width: 1000px) {
-    /* Desktop Enhancements */
     .hero-panel { padding: 50px; }
     h1 { font-size: 3em; }
     .typewriter {
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3.5s steps(40, end);
-      border-right: .15em solid orange;
+      overflow: hidden; white-space: nowrap; animation: typing 3.5s steps(40, end); border-right: .15em solid orange;
     }
     @keyframes typing { from { width: 0 } to { width: 100% } }
   }
