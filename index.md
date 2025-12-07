@@ -102,7 +102,13 @@ order: 1
 </div>
 
 ---
+###  Life Outside Research
+Beyond cosmology, I thrive on creativity, sports, and cinema. I believe a balance between scientific rigor and artistic expression shapes my unique perspective.
 
+<div class="btn-container">
+  <a href="/gallery/" class="btn-pub" style="background-color: #d35400; border-color: #d35400;">View Gallery & Interests →</a>
+</div>
+---
 ###  Research Domain
 My primary focus is **Observational Cosmology**. I employ both parametric and non-parametric methodologies to understand the origin, dynamics, and ultimate fate of the Universe.
 
@@ -136,5 +142,9 @@ I blend rigorous mathematics with modern computation. My workflow involves Bayes
 **Cosmological Packages:**
 <span class="tech-tag">CLASS</span> <span class="tech-tag">MontePython</span> <span class="tech-tag">Cobaya</span> <span class="tech-tag">Colfi</span> <span class="tech-tag">emcee</span>
 
+
+
 ---
+
+
 
