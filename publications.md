@@ -70,7 +70,26 @@ order: 2
     line-height: 1.6;
   }
   .highlights strong { color: #003366; }
+
+  /* Navigation Button Style */
+  .nav-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #003366;
+    color: #003366;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .nav-btn:hover {
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+  }
 </style>
+
+<a href="/" class="nav-btn">← Back to Home</a>
 
 ## 📜 Selected Research Publications
 
@@ -131,6 +150,6 @@ Here is a list of my research contributions in Observational Cosmology.
 
 ---
 
-<p style="text-align: center; margin-top: 50px;">
-  <a href="#" style="background-color: #d35400; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">View Google Scholar Profile</a>
-</p>
+<div style="text-align: center; margin-top: 30px;">
+  <a href="/" class="nav-btn">← Back to Home</a>
+</div>
