@@ -260,7 +260,7 @@ order: 1
   <div style="margin-bottom: 80px; text-align: center;">
     
     <div class="profile-container">
-      <img src="Mazaharul-Abedin.webp" alt="Mazaharul Abedin" class="profile-pic">
+      <img src="Mazaharul-Abedin.png" alt="Mazaharul Abedin" class="profile-pic">
     </div>
 
     <h1 class="glitch" data-text="MAZAHARUL ABEDIN">MAZAHARUL ABEDIN</h1>
