@@ -6,14 +6,14 @@ order: 2
 ---
 
 <style>
-  /* --- FORCE FULL WIDTH ON LAPTOP SCREENS --- */
-  @media screen and (min-width: 1000px) {
+  /* --- AGGRESSIVE FULL WIDTH FIX --- */
+  /* This forces the container to expand on laptops */
+  @media screen and (min-width: 800px) {
     .wrapper {
-      max-width: 95vw !important; /* Forces 95% of the Viewport Width */
-      width: 95% !important;
-      padding-left: 20px !important;
-      padding-right: 20px !important;
-      margin: 0 auto !important;
+      max-width: 1400px !important; /* Force widely expanded width */
+      width: 92% !important;        /* Use 92% of the screen */
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 
@@ -21,35 +21,42 @@ order: 2
   h2 { color: #003366; }
   h3 { color: #003366; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
   
-  .publication-item { margin-bottom: 40px; }
+  .publication-item { 
+    margin-bottom: 40px; 
+    background-color: #fff; /* White background for the item */
+    padding: 20px;          /* Padding inside the item */
+    border-radius: 8px;
+    border: 1px solid #eee; /* Subtle border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Slight shadow */
+  }
 
-  .paper-title { font-size: 1.2em; font-weight: bold; color: #003366; display: block; margin-bottom: 5px; }
+  .paper-title { font-size: 1.3em; font-weight: bold; color: #003366; display: block; margin-bottom: 8px; }
   
-  .authors { color: #444; font-style: italic; margin-bottom: 10px; }
+  .authors { color: #444; font-style: italic; margin-bottom: 12px; font-size: 1.05em; }
   .authors strong { color: #000; text-decoration: underline; }
 
-  .journal-info { color: #005b96; font-weight: bold; font-size: 0.95em; margin-bottom: 10px; }
+  .journal-info { color: #005b96; font-weight: bold; font-size: 1em; margin-bottom: 12px; }
 
   /* Link Buttons */
-  .links { margin-top: 10px; margin-bottom: 15px;}
+  .links { margin-top: 15px; margin-bottom: 15px;}
   .links a { 
     background-color: #003366; color: white !important; font-weight: bold; 
-    font-size: 0.85em; margin-right: 10px; text-decoration: none;
-    padding: 5px 12px; border-radius: 4px; display: inline-block; transition: all 0.3s ease;
+    font-size: 0.9em; margin-right: 10px; text-decoration: none;
+    padding: 8px 16px; border-radius: 4px; display: inline-block; transition: all 0.3s ease;
   }
   .links a:hover { background-color: #d35400; }
 
   /* Highlight Box */
   .highlights { 
-    background-color: #f8f9fa; padding: 15px; border-left: 4px solid #d35400; 
-    font-size: 0.95em; margin-top: 15px; color: #333; line-height: 1.6;
+    background-color: #f8f9fa; padding: 20px; border-left: 5px solid #d35400; 
+    font-size: 1em; margin-top: 15px; color: #333; line-height: 1.7;
   }
   .highlights strong { color: #003366; }
 
   /* Navigation Button */
   .nav-btn {
-    display: inline-block; padding: 8px 16px; border: 1px solid #003366;
-    background-color: white; color: #003366; border-radius: 4px; text-decoration: none; font-weight: bold; margin-bottom: 20px;
+    display: inline-block; padding: 10px 20px; border: 2px solid #003366;
+    background-color: white; color: #003366; border-radius: 5px; text-decoration: none; font-weight: bold; margin-bottom: 30px;
   }
   .nav-btn:hover { background-color: #003366; color: white; text-decoration: none; }
 </style>
