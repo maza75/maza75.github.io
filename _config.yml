@@ -2,22 +2,21 @@ title: Mazaharul Abedin
 author: Mazaharul Abedin
 email: mazaharul.rs@presiuniv.ac.in
 description: >-
-  Academic portfolio and personal website of Mazaharul Abedin. 
-  Researcher at Presidency University. Exploring physics, mathematics, and cosmology.
+  Academic portfolio of Mazaharul Abedin. PhD Research Scholar at Presidency University, Kolkata. 
+  Exploring Observational Cosmology, Dark Energy, and Machine Learning applications in Physics.
 
 # --- Technical Settings ---
-baseurl: "" # Keep this empty for user sites (maza75.github.io)
-url: "https://maza75.github.io" # Your actual website URL
+baseurl: "" 
+url: "https://maza75.github.io" 
 
 # --- Theme & Visuals ---
 theme: minima
 header_pages:
-  - about.md
-  - portfolio.md
+  - index.md
+  - publications.md
 
-# --- Social Media (This adds icons to the footer) ---
+# --- Social Media (Appears in Footer) ---
 github_username: maza75
-# twitter_username: your_twitter_handle # Remove the '#' at start if you have one
 
 # --- Plugins ---
 plugins:
