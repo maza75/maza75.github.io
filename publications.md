@@ -6,12 +6,15 @@ order: 2
 ---
 
 <style>
-  /* --- WIDE LAYOUT FIX (Makes this page full width) --- */
-  .wrapper {
-    max-width: 1250px !important;
-    width: 95% !important;
-    padding-left: 20px;
-    padding-right: 20px;
+  /* --- FORCE FULL WIDTH ON LAPTOP SCREENS --- */
+  @media screen and (min-width: 1000px) {
+    .wrapper {
+      max-width: 95vw !important; /* Forces 95% of the Viewport Width */
+      width: 95% !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      margin: 0 auto !important;
+    }
   }
 
   /* --- PUBLICATIONS STYLES --- */
