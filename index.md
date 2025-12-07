@@ -5,6 +5,13 @@ order: 1
 ---
 
 <style>
+  /* --- GLOBAL PAGE BACKGROUND --- */
+  body {
+    /* Subtle geometric constellation pattern */
+    background-image: url('https://www.transparenttextures.com/patterns/connected.png');
+    background-color: #fcfcfc; /* Very light grey fallback */
+  }
+
   /* --- GLOBAL COLORS --- */
   h1, h2, h3 { color: #003366; } 
   strong { color: #005b96; } 
@@ -42,11 +49,13 @@ order: 1
   .hero-banner strong { color: #82cfff !important; } /* Light blue accents */
 
   /* --- RESEARCH BOX --- */
+  /* Added white background so text remains readable over the pattern */
   .box {
-    background-color: #fafafa;
+    background-color: #ffffff;
     border-left: 5px solid #003366;
     padding: 15px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Slight shadow to pop out */
   }
 
   /* --- TECH TAGS (Skills) --- */
@@ -94,7 +103,7 @@ order: 1
 
 ---
 
-### 🔭 Research Domain
+###  Research Domain
 My primary focus is **Observational Cosmology**. I employ both parametric and non-parametric methodologies to understand the origin, dynamics, and ultimate fate of the Universe.
 
 <div class="box">
@@ -108,7 +117,7 @@ My primary focus is **Observational Cosmology**. I employ both parametric and no
 
 ---
 
-### 📜 Publications
+###  Publications
 I have authored papers on dark energy interactions and model-independent reconstructions.
 
 <div class="btn-container">
@@ -117,7 +126,7 @@ I have authored papers on dark energy interactions and model-independent reconst
 
 ---
 
-### 💻 Methodological Framework & Tools
+###  Methodological Framework & Tools
 
 I blend rigorous mathematics with modern computation. My workflow involves Bayesian inference, MCMC sampling, and Machine Learning.
 
@@ -129,6 +138,3 @@ I blend rigorous mathematics with modern computation. My workflow involves Bayes
 
 ---
 
-### 📬 Contact Me
-* **Email:** [mazaharul.rs@presiuniv.ac.in](mailto:mazaharul.rs@presiuniv.ac.in)
-* **GitHub:** [github.com/maza75](https://github.com/maza75)
