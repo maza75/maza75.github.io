@@ -5,361 +5,334 @@ order: 1
 ---
 
 <style>
-  /* --- 🌌 FONTS & IMPORTS --- */
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap');
 
-  /* --- ⚙️ SYSTEM CORE VARIABLES --- */
+  /* --- 🌌 SYSTEM PALETTE (Not Black, but Deep Space) --- */
   :root {
-    --neon-cyan: #00f3ff;
-    --neon-pink: #bc13fe;
-    --neon-green: #0aff0a;
-    --void-bg: #050505;
-    --glass-panel: rgba(13, 13, 18, 0.85);
-    --border-color: rgba(255, 255, 255, 0.15);
+    --bg-deep: #0f172a;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --glass-surface: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(124, 58, 237, 0.3);
+    --neon-cyan: #22d3ee;
+    --neon-purple: #c084fc;
+    --neon-alert: #f472b6;
+    --text-main: #cbd5e1;
   }
 
   /* --- 🚀 GLOBAL PHYSICS --- */
-  * { box-sizing: border-box; }
-  
   html, body {
     margin: 0; padding: 0;
     width: 100%; min-height: 100vh;
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
     overflow-x: hidden;
-    background-color: var(--void-bg);
-    color: #a8b2d1;
-    font-family: 'Share Tech Mono', monospace;
   }
 
-  /* --- 🌐 MOVING 3D GRID BACKGROUND --- */
-  body {
+  /* --- 🌐 MOVING WARP GRID BACKGROUND --- */
+  body::before {
+    content: "";
+    position: fixed; top: 0; left: 0; width: 200%; height: 200%;
     background-image: 
-      linear-gradient(rgba(0, 243, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: center top;
-  }
-
-  /* --- 📺 CRT INTERFACE OVERLAY --- */
-  body::after {
-    content: " ";
-    display: block;
-    position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-    z-index: 9999;
-    background-size: 100% 3px, 3px 100%;
+      linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+    animation: grid-move 20s linear infinite;
+    z-index: -2;
     pointer-events: none;
   }
 
-  /* --- 📐 DYNAMIC WRAPPER (Full Screen Fix) --- */
+  @keyframes grid-move { 0% { transform: perspective(500px) rotateX(60deg) translateY(0); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px); } }
+
+  /* --- 🧬 LAYOUT CONTAINER --- */
   .wrapper {
-    width: 96%;
-    max-width: 1600px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 0 100px 0; /* Padding bottom for footer */
+    padding: 20px;
     position: relative;
     z-index: 2;
   }
 
-  /* --- 🎛️ HUD STATUS BAR --- */
-  .hud-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    border-bottom: 1px solid var(--border-color);
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8rem;
-    color: #777;
-    margin-bottom: 50px;
-  }
-  .hud-item { display: flex; align-items: center; gap: 10px; }
-  .status-dot { width: 8px; height: 8px; background: var(--neon-green); border-radius: 50%; box-shadow: 0 0 10px var(--neon-green); }
-  .status-alert { width: 8px; height: 8px; background: red; border-radius: 50%; animation: blink 1s infinite; }
-
   /* --- 🧪 TYPOGRAPHY --- */
-  h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.5rem, 6vw, 5.5rem); 
-    line-height: 0.9;
-    margin-bottom: 15px;
+  h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+  
+  h2 { 
+    border-bottom: 2px solid var(--neon-purple); 
+    display: inline-block; 
+    padding-bottom: 5px; 
     color: #fff;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 0px var(--neon-pink);
-  }
-
-  h2 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: #fff;
-    border-bottom: 2px solid var(--neon-cyan);
-    display: inline-block;
-    padding-bottom: 5px;
     margin-top: 60px;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    text-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
   }
 
-  p { font-size: 1.15rem; line-height: 1.7; color: #b4c0d6; max-width: 900px; }
+  p { font-size: 1.2rem; line-height: 1.6; }
   strong { color: var(--neon-cyan); }
-  a { color: var(--neon-pink); text-decoration: none; border-bottom: 1px dashed var(--neon-pink); transition: 0.3s; }
-  a:hover { background: var(--neon-pink); color: #fff; border-bottom: none; }
 
-  /* --- 🤡 PROFILE IMAGE (Cartoon/Sci-Fi Style) --- */
-  .profile-container {
-    width: 180px; height: 180px;
-    margin: 0 auto 30px auto; /* Centers it */
+  /* --- 🛸 HERO INTERFACE --- */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    background: var(--glass-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     position: relative;
-    border-radius: 50%; 
-    border: 4px solid var(--neon-cyan);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
     overflow: hidden;
-    background: #000;
-    animation: float 6s ease-in-out infinite;
   }
+
+  /* Glowing Top Bar */
+  .hero-grid::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  }
+
+  @media screen and (min-width: 900px) {
+    .hero-grid { 
+      grid-template-columns: 300px 1fr; /* Image Left, Text Right */
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  /* --- 🤡 HEXAGON PROFILE IMAGE --- */
+  .hex-container {
+    width: 250px; height: 250px;
+    margin: 0 auto;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: var(--neon-cyan);
+    padding: 4px; /* Border thickness */
+    transition: transform 0.5s;
+  }
+  
+  .hex-container:hover { transform: scale(1.05) rotate(5deg); }
 
   .profile-pic {
     width: 100%; height: 100%;
     object-fit: cover;
-    /* This makes it look "Cartoonish" */
-    filter: contrast(1.1) saturate(1.3) brightness(1.1);
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: #000;
+    filter: contrast(1.1) saturate(1.2); /* Comic Book Style */
   }
 
-  /* The Comedy Spin Effect on Hover */
-  .profile-container:hover .profile-pic {
-    transform: rotate(360deg) scale(1.1);
-    filter: hue-rotate(90deg); /* Glitch color shift */
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
-
-  /* --- ⚡ GLITCH EFFECT --- */
-  .glitch { position: relative; color: white; }
-  .glitch::before, .glitch::after {
-    content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--void-bg);
-  }
-  .glitch::before { left: 2px; text-shadow: -1px 0 red; clip: rect(24px, 550px, 90px, 0); animation: glitch-anim-2 3s infinite linear alternate-reverse; }
-  .glitch::after { left: -2px; text-shadow: -1px 0 blue; clip: rect(85px, 550px, 140px, 0); animation: glitch-anim 2.5s infinite linear alternate-reverse; }
-  @keyframes glitch-anim { 0% { clip: rect(14px, 9999px, 121px, 0); } 100% { clip: rect(69px, 9999px, 34px, 0); } }
-  @keyframes glitch-anim-2 { 0% { clip: rect(129px, 9999px, 36px, 0); } 100% { clip: rect(2px, 9999px, 86px, 0); } }
-
-  /* --- 📂 HOLOGRAPHIC PANELS --- */
-  .holo-card {
-    background: var(--glass-panel);
-    border: 1px solid var(--border-color);
-    padding: 40px;
-    border-radius: 6px;
-    position: relative;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 30px rgba(0,0,0,0.6);
-    transition: transform 0.3s, border-color 0.3s;
-    width: 100%;
-  }
-  .holo-card:hover { transform: translateY(-3px); border-color: rgba(0, 243, 255, 0.4); box-shadow: 0 10px 40px rgba(0, 243, 255, 0.15); }
-  .holo-card::before { content: ''; position: absolute; top: 0; left: 0; width: 30px; height: 30px; border-top: 3px solid var(--neon-cyan); border-left: 3px solid var(--neon-cyan); }
-  .holo-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 30px; height: 30px; border-bottom: 3px solid var(--neon-cyan); border-right: 3px solid var(--neon-cyan); }
-
-  /* --- 🧬 TECH GRID --- */
-  .tech-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 25px; }
-  .tech-node { background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 12px; text-align: center; font-size: 1rem; color: var(--neon-cyan); transition: 0.2s; cursor: crosshair; }
-  .tech-node:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 20px var(--neon-cyan); }
-
-  /* --- 🤣 HAZARD ZONE --- */
-  .hazard-zone {
-    background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 10px, #222 10px, #222 20px);
-    border: 2px dashed #ff9f43; padding: 40px; margin-top: 60px; text-align: center; position: relative;
-  }
-  .hazard-title { background: #ff9f43; color: #000; padding: 5px 20px; font-family: 'Orbitron'; font-weight: bold; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); letter-spacing: 2px; }
-
-  /* --- 🕹️ NAV BUTTONS (Publications/Gallery) --- */
-  .nav-deck {
-    text-align: center; margin: 100px 0 50px 0;
-  }
-  .btn-container { 
-    display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px; 
-  }
-  
-  .btn-main {
+  /* --- 📜 TYPEWRITER TEXT --- */
+  .typewriter {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--neon-purple);
+    font-size: 1.1rem;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 5px;
     display: inline-block;
-    padding: 20px 40px;
-    border: 2px solid var(--neon-pink);
-    color: var(--neon-pink);
+    border-left: 3px solid var(--neon-cyan);
+  }
+
+  /* --- 📂 INFO MODULES (Cards) --- */
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .data-module {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .data-module:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: var(--neon-cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.15);
+  }
+
+  .module-header {
+    font-family: 'JetBrains Mono';
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* --- 🛠 TECH CHIPS --- */
+  .chip-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .tech-chip {
+    background: rgba(192, 132, 252, 0.1);
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono';
+    cursor: default;
+    transition: 0.2s;
+  }
+  .tech-chip:hover { background: var(--neon-purple); color: #fff; box-shadow: 0 0 15px var(--neon-purple); }
+
+  /* --- 🕹️ BUTTONS --- */
+  .cyber-btn {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
     font-family: 'Orbitron';
+    padding: 15px 30px;
+    border: 2px solid var(--neon-cyan);
+    text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 1.1rem;
-    font-weight: bold;
     position: relative;
     overflow: hidden;
-    z-index: 1;
     transition: 0.3s;
-    text-decoration: none;
-    border-bottom: 4px solid var(--neon-pink);
-    background: rgba(0,0,0,0.6);
+    margin-top: 20px;
+    z-index: 1;
   }
-  .btn-main:hover { color: #fff; background: var(--neon-pink); box-shadow: 0 0 40px var(--neon-pink); transform: translateY(-3px); }
   
-  .btn-blue { border-color: var(--neon-cyan); color: var(--neon-cyan); border-bottom: 4px solid var(--neon-cyan); }
-  .btn-blue:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 40px var(--neon-cyan); }
+  .cyber-btn::before {
+    content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: var(--neon-cyan); z-index: -1; transition: 0.3s;
+  }
+  
+  .cyber-btn:hover::before { left: 0; }
+  .cyber-btn:hover { color: #000; box-shadow: 0 0 30px var(--neon-cyan); }
 
-  /* --- 🔮 BLING BLING EMAIL ORB --- */
+  /* --- 🤣 SYSTEM ERROR BOX --- */
+  .error-box {
+    background: #2a0a18;
+    border: 2px dashed var(--neon-alert);
+    color: var(--neon-alert);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 60px;
+    position: relative;
+  }
+  .error-box::after {
+    content: "⚠ CRITICAL HUMOR FAILURE ⚠";
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--neon-alert); color: #000; padding: 2px 10px; font-weight: bold; font-family: 'Orbitron';
+  }
+
+  /* --- 📡 EMAIL ORB --- */
   .email-orb {
-    position: fixed;
-    bottom: 40px; right: 40px;
-    width: 80px; height: 80px;
+    position: fixed; bottom: 30px; right: 30px;
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #ff55ff, #ff00ff, #aa00aa);
-    border: 3px solid #fff;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 30px #ff00ff, inset 0 0 10px #fff;
-    z-index: 9999;
-    animation: orb-pulse 2s infinite ease-in-out;
-    transition: transform 0.3s;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 0 20px var(--neon-purple);
+    z-index: 999;
+    transition: 0.3s;
   }
-  .email-orb:hover { transform: scale(1.15) rotate(10deg); cursor: pointer; }
-  
-  /* Icon inside Orb */
-  .email-orb svg { width: 40px; height: 40px; fill: white; filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); }
-  
-  /* Ripple Effect */
-  .email-orb::before {
-    content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
-    border-radius: 50%; border: 2px solid #ff00ff;
-    animation: ripple-wave 1.5s infinite linear; opacity: 0;
-  }
+  .email-orb:hover { transform: scale(1.1) rotate(360deg); }
+  .email-orb svg { width: 30px; fill: white; }
 
-  @keyframes orb-pulse { 0%, 100% { box-shadow: 0 0 20px #ff00ff; } 50% { box-shadow: 0 0 60px #ff00ff, 0 0 15px #fff; } }
-  @keyframes ripple-wave { 0% { transform: scale(0.5); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
-
-  /* --- 📱 MOBILE OPTIMIZATION --- */
-  @media screen and (max-width: 768px) {
-    .hud-bar { flex-direction: column; gap: 10px; text-align: center; }
-    .holo-card { padding: 25px; }
-    .btn-container { flex-direction: column; width: 100%; gap: 20px; }
-    .btn-main { width: 100%; text-align: center; }
-    .email-orb { bottom: 20px; right: 20px; width: 60px; height: 60px; }
-    .email-orb svg { width: 30px; height: 30px; }
-  }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 </style>
 
 <div class="wrapper">
 
-  <div class="hud-bar">
-    <div class="hud-item"><div class="status-dot"></div> SYSTEM: ONLINE</div>
-    <div class="hud-item">LOC: EARTH-982 (Kolkata)</div>
-    <div class="hud-item"><div class="status-alert"></div> CAFFEINE: CRITICAL</div>
-  </div>
-
-  <div style="margin-bottom: 80px;">
-    
-    <div class="profile-container">
+  <div class="hero-grid">
+    <div class="hex-container">
       <img src="Mazaharul-Abedin.webp" alt="Mazaharul Abedin" class="profile-pic">
     </div>
 
-    <h1 class="glitch" data-text="MAZAHARUL ABEDIN">MAZAHARUL ABEDIN</h1>
-    
-    <p style="border-left: 4px solid var(--neon-pink); padding-left: 20px; font-size: clamp(1rem, 2vw, 1.4rem); color: #fff; margin-top: 20px;">
-      > PhD Research Scholar | Cosmetic Architect | Void Stare-er<br>
-      > Investigating <strong>Dark Energy</strong> & <strong>Cosmic Expansion</strong>
-    </p>
+    <div style="text-align: center; @media (min-width: 900px) { text-align: left; }">
+      <h1 style="color: #fff; margin: 0;">MAZAHARUL</h1>
+      <h1 style="color: var(--neon-cyan); margin: 0; font-size: 2rem;">ABEDIN</h1>
+      
+      <br>
+      <div class="typewriter">
+        > SYSTEM STATUS: PhD Scholar | Dark Energy Detective
+      </div>
 
-    <div class="holo-card" style="margin-top: 40px;">
-      <p style="margin: 0;">
-        <strong>// INITIALIZING GREETING PROTOCOL...</strong><br><br>
-        Operating out of the <strong>Department of Mathematics, Presidency University</strong> under the command of <strong>Dr. Supriya Pan</strong>. 
-        I combine Theoretical Physics with Astronomical Observations to ask the Universe why it is running away from us so fast.
+      <p style="margin-top: 20px;">
+        Operating from <strong>Presidency University, Kolkata</strong>. <br>
+        I specialize in asking the Universe uncomfortable questions about its expansion history.
+        (Usually, the Universe refuses to answer, so I use Python instead).
       </p>
     </div>
   </div>
 
   <section>
-    <h2><span style="color:var(--neon-cyan)">01.</span> CASE FILE: COSMOLOGY</h2>
+    <h2>01. MISSION OBJECTIVES</h2>
+    <p>My primary directive is **Observational Cosmology**. Using a blend of rigorous math and "letting the data speak for itself."</p>
     
-    <div class="holo-card">
-      <p>
-        I employ both <strong>parametric</strong> (testing theories) and <strong>non-parametric</strong> (letting data speak) methodologies.
-        
-        
 
 [Image of cosmic expansion timeline]
 
-      </p>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
-        <div style="border: 1px dashed #444; padding: 20px; background: rgba(0,0,0,0.3);">
-          <strong style="color:var(--neon-pink); font-size: 1.2rem;">TARGET: Dark Energy</strong>
-          <p style="font-size: 1rem; margin-top: 10px;">Reconstructing Hubble parameters to understand late-time acceleration.</p>
-        </div>
-        <div style="border: 1px dashed #444; padding: 20px; background: rgba(0,0,0,0.3);">
-          <strong style="color:var(--neon-pink); font-size: 1.2rem;">TARGET: ΛCDM</strong>
-          <p style="font-size: 1rem; margin-top: 10px;">Hunting for cracks in the standard model using SNe Ia & DESI-BAO data.</p>
-        </div>
+
+    <div class="module-grid">
+      <div class="data-module">
+        <span class="module-header">TARGET: DARK_ENERGY</span>
+        <h3 style="color:#fff; margin-top:0;">Cosmic Acceleration</h3>
+        <p style="font-size: 0.95rem;">Reconstructing the Hubble parameter to figure out why galaxies are ghosting us at increasing speeds.</p>
+      </div>
+
+      <div class="data-module">
+        <span class="module-header">METHOD: NON_PARAMETRIC</span>
+        <h3 style="color:#fff; margin-top:0;">Machine Learning</h3>
+        <p style="font-size: 0.95rem;">Using <strong>Gaussian Processes</strong> and <strong>ANNs</strong> because assuming a model is too mainstream.</p>
+      </div>
+
+      <div class="data-module">
+        <span class="module-header">PROTOCOL: STRESS_TEST</span>
+        <h3 style="color:#fff; margin-top:0;">Testing ΛCDM</h3>
+        <p style="font-size: 0.95rem;">Checking if the Standard Model holds up against new SNe Ia and DESI-BAO data, or if it needs a software update.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2><span style="color:var(--neon-cyan)">02.</span> THE ARSENAL</h2>
-    <div class="holo-card">
-      <p style="font-family: 'Orbitron'; color: #888; font-size: 0.9rem; margin-bottom: 5px;">// LOAD MODULE: MACHINE_LEARNING</p>
-      <div class="tech-wrapper">
-        <div class="tech-node">Gaussian Proc</div>
-        <div class="tech-node">Gapp</div>
-        <div class="tech-node">JAX</div>
-        <div class="tech-node">NumPyro</div>
-        <div class="tech-node">ANNs</div>
-        <div class="tech-node">tinygp</div>
-      </div>
-      <div style="height: 30px;"></div>
-      <p style="font-family: 'Orbitron'; color: #888; font-size: 0.9rem; margin-bottom: 5px;">// LOAD MODULE: COSMOLOGY_SIMS</p>
-      <div class="tech-wrapper">
-        <div class="tech-node">CLASS</div>
-        <div class="tech-node">MontePython</div>
-        <div class="tech-node">Cobaya</div>
-        <div class="tech-node">emcee</div>
-        <div class="tech-node">Colfi</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="hazard-zone">
-      <span class="hazard-title">⚠ HUMAN SIMULATION MODE ⚠</span>
-      <p style="color: #ff9f43; font-size: 1.2rem; margin-bottom: 20px;">
-        <strong>System Warning:</strong> Prolonged exposure to Friedmann equations may cause hallucinations.
-      </p>
-      <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-        <span style="border: 1px solid #ff9f43; padding: 8px 20px; color: #ff9f43; letter-spacing: 1px;">🏏 CRICKET</span>
-        <span style="border: 1px solid #ff9f43; padding: 8px 20px; color: #ff9f43; letter-spacing: 1px;">🎬 CINEMA</span>
-        <span style="border: 1px solid #ff9f43; padding: 8px 20px; color: #ff9f43; letter-spacing: 1px;">🎨 DESIGN</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="nav-deck">
-    <p style="font-family: 'Orbitron'; margin-bottom: 10px; color: #666; letter-spacing: 3px;">// SYSTEM NAVIGATION //</p>
+  <section style="text-align: center;">
+    <h2>02. THE ARSENAL</h2>
+    <p style="margin: 0 auto 30px auto;">The computational weaponry I use to fight bad data.</p>
     
-    <div class="btn-container">
-      <a href="/publications/" class="btn-main">
-        ACCESS PUBLICATIONS
-      </a>
-      
-      <a href="/gallery/" class="btn-main btn-blue">
-        VISUAL DATA (GALLERY)
-      </a>
+    <div class="chip-container">
+      <span class="tech-chip">Python</span>
+      <span class="tech-chip">JAX</span>
+      <span class="tech-chip">MCMC</span>
+      <span class="tech-chip">Gaussian Processes</span>
+      <span class="tech-chip">CLASS</span>
+      <span class="tech-chip">MontePython</span>
+      <span class="tech-chip">Cobaya</span>
+      <span class="tech-chip">NumPyro</span>
     </div>
+  </section>
 
-    <p style="font-size: 0.8rem; color: #444; margin-top: 40px;">// END OF TRANSMISSION //</p>
+  <section style="text-align: center; margin-top: 80px;">
+    <div style="background: var(--glass-surface); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border);">
+      <h3 style="color: #fff; margin-bottom: 20px;">ACCESS CLASSIFIED DATA</h3>
+      
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="/publications/" class="cyber-btn">
+          📂 Research Logs
+        </a>
+        <a href="/gallery/" class="cyber-btn" style="border-color: var(--neon-purple); color: var(--neon-purple);">
+          🎭 Life.exe (Gallery)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="error-box">
+    <p style="font-size: 1.1rem; color: #fce7f3;">
+      "I believe Physics explains <em>how</em> the world works, but <strong>Charlie Chaplin</strong> explains <em>why</em> we bother putting up with it."
+      <br><br>
+      <span style="font-size: 0.9rem; opacity: 0.8;">(Also, if you find the missing mass of the universe, please email me. I lost it somewhere.)</span>
+    </p>
   </div>
 
-  <a href="mailto:mazaharul.rs@presiuniv.ac.in" class="email-orb" title="Initiate Contact">
+  <a href="mailto:mazaharul.rs@presiuniv.ac.in" class="email-orb" title="Send Signal">
     <svg viewBox="0 0 24 24">
       <path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/>
     </svg>
