@@ -14,29 +14,24 @@ order: 1
     --neon-pink: #bc13fe;
     --neon-green: #0aff0a;
     --void-bg: #050505;
-    --glass-panel: rgba(13, 13, 18, 0.85); /* Slightly darker for readability */
+    --glass-panel: rgba(13, 13, 18, 0.85);
     --border-color: rgba(255, 255, 255, 0.15);
   }
 
-  /* --- 🚀 GLOBAL PHYSICS & RESET --- */
-  * {
-    box-sizing: border-box; /* Fixes sizing issues */
-  }
-
-  html {
-    height: 100%;
-  }
-
-  body {
+  /* --- 🚀 GLOBAL PHYSICS --- */
+  * { box-sizing: border-box; }
+  
+  html, body {
     margin: 0; padding: 0;
-    width: 100%; 
-    min-height: 100vh; /* Forces background to cover full screen */
-    overflow-x: hidden; /* Prevents side scrolling */
+    width: 100%; min-height: 100vh;
+    overflow-x: hidden;
     background-color: var(--void-bg);
     color: #a8b2d1;
     font-family: 'Share Tech Mono', monospace;
-    
-    /* 🌐 MOVING 3D GRID BACKGROUND */
+  }
+
+  /* --- 🌐 MOVING 3D GRID BACKGROUND --- */
+  body {
     background-image: 
       linear-gradient(rgba(0, 243, 255, 0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
@@ -56,18 +51,17 @@ order: 1
     pointer-events: none;
   }
 
-  /* --- 📐 DYNAMIC WRAPPER (FULL SCREEN ENGINE) --- */
+  /* --- 📐 DYNAMIC WRAPPER (Full Screen Fix) --- */
   .wrapper {
-    width: 96%;        /* Covers 96% of the screen width */
-    max-width: 1600px; /* Cap it at 1600px for ultra-wide monitors */
-    margin: 0 auto;    /* Centers it */
-    padding: 0;
+    width: 96%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 0 100px 0; /* Padding bottom for footer */
     position: relative;
     z-index: 2;
-    padding-bottom: 100px; /* Space for footer */
   }
 
-  /* --- 🎛️ HUD STATUS BAR (Stretches Full Width) --- */
+  /* --- 🎛️ HUD STATUS BAR --- */
   .hud-bar {
     display: flex;
     justify-content: space-between;
@@ -77,10 +71,8 @@ order: 1
     backdrop-filter: blur(5px);
     font-family: 'Orbitron', sans-serif;
     font-size: 0.8rem;
-    letter-spacing: 2px;
     color: #777;
     margin-bottom: 50px;
-    width: 100%;
   }
   .hud-item { display: flex; align-items: center; gap: 10px; }
   .status-dot { width: 8px; height: 8px; background: var(--neon-green); border-radius: 50%; box-shadow: 0 0 10px var(--neon-green); }
@@ -90,15 +82,12 @@ order: 1
   h1 {
     font-family: 'Orbitron', sans-serif;
     font-weight: 900;
-    /* DYNAMIC FONT SIZING: Fits any screen */
     font-size: clamp(2.5rem, 6vw, 5.5rem); 
     line-height: 0.9;
     margin-bottom: 15px;
     color: #fff;
     text-transform: uppercase;
-    position: relative;
     text-shadow: 3px 3px 0px var(--neon-pink);
-    letter-spacing: -2px;
   }
 
   h2 {
@@ -110,13 +99,12 @@ order: 1
     padding-bottom: 5px;
     margin-top: 60px;
     margin-bottom: 30px;
-    text-transform: uppercase;
   }
 
-  p { font-size: 1.15rem; line-height: 1.7; color: #b4c0d6; max-width: 900px; /* Keeps text readable on wide screens */ }
+  p { font-size: 1.15rem; line-height: 1.7; color: #b4c0d6; max-width: 900px; }
   strong { color: var(--neon-cyan); }
   a { color: var(--neon-pink); text-decoration: none; border-bottom: 1px dashed var(--neon-pink); transition: 0.3s; }
-  a:hover { background: var(--neon-pink); color: #fff; border-bottom: none; box-shadow: 0 0 15px var(--neon-pink); }
+  a:hover { background: var(--neon-pink); color: #fff; border-bottom: none; }
 
   /* --- ⚡ GLITCH EFFECT --- */
   .glitch { position: relative; color: white; }
@@ -128,7 +116,7 @@ order: 1
   @keyframes glitch-anim { 0% { clip: rect(14px, 9999px, 121px, 0); } 100% { clip: rect(69px, 9999px, 34px, 0); } }
   @keyframes glitch-anim-2 { 0% { clip: rect(129px, 9999px, 36px, 0); } 100% { clip: rect(2px, 9999px, 86px, 0); } }
 
-  /* --- 📂 HOLOGRAPHIC PANELS (Full Width) --- */
+  /* --- 📂 HOLOGRAPHIC PANELS --- */
   .holo-card {
     background: var(--glass-panel);
     border: 1px solid var(--border-color);
@@ -138,12 +126,9 @@ order: 1
     backdrop-filter: blur(12px);
     box-shadow: 0 0 30px rgba(0,0,0,0.6);
     transition: transform 0.3s, border-color 0.3s;
-    overflow: hidden;
-    width: 100%; /* Ensures it fills the wrapper */
+    width: 100%;
   }
   .holo-card:hover { transform: translateY(-3px); border-color: rgba(0, 243, 255, 0.4); box-shadow: 0 10px 40px rgba(0, 243, 255, 0.15); }
-  
-  /* Corner Accents */
   .holo-card::before { content: ''; position: absolute; top: 0; left: 0; width: 30px; height: 30px; border-top: 3px solid var(--neon-cyan); border-left: 3px solid var(--neon-cyan); }
   .holo-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 30px; height: 30px; border-bottom: 3px solid var(--neon-cyan); border-right: 3px solid var(--neon-cyan); }
 
@@ -159,8 +144,13 @@ order: 1
   }
   .hazard-title { background: #ff9f43; color: #000; padding: 5px 20px; font-family: 'Orbitron'; font-weight: bold; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); letter-spacing: 2px; }
 
-  /* --- 🕹️ BUTTONS --- */
-  .btn-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  /* --- 🕹️ NAV BUTTONS (Publications/Gallery) --- */
+  .nav-deck {
+    text-align: center; margin: 100px 0 50px 0;
+  }
+  .btn-container { 
+    display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px; 
+  }
   
   .btn-main {
     display: inline-block;
@@ -170,7 +160,7 @@ order: 1
     font-family: 'Orbitron';
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     position: relative;
     overflow: hidden;
@@ -180,7 +170,7 @@ order: 1
     border-bottom: 4px solid var(--neon-pink);
     background: rgba(0,0,0,0.6);
   }
-  .btn-main:hover { color: #fff; background: var(--neon-pink); box-shadow: 0 0 40px var(--neon-pink); transform: translateY(-2px); }
+  .btn-main:hover { color: #fff; background: var(--neon-pink); box-shadow: 0 0 40px var(--neon-pink); transform: translateY(-3px); }
   
   .btn-blue { border-color: var(--neon-cyan); color: var(--neon-cyan); border-bottom: 4px solid var(--neon-cyan); }
   .btn-blue:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 40px var(--neon-cyan); }
@@ -200,7 +190,11 @@ order: 1
     transition: transform 0.3s;
   }
   .email-orb:hover { transform: scale(1.15) rotate(10deg); cursor: pointer; }
+  
+  /* Icon inside Orb */
   .email-orb svg { width: 40px; height: 40px; fill: white; filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); }
+  
+  /* Ripple Effect */
   .email-orb::before {
     content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
     border-radius: 50%; border: 2px solid #ff00ff;
@@ -212,14 +206,12 @@ order: 1
 
   /* --- 📱 MOBILE OPTIMIZATION --- */
   @media screen and (max-width: 768px) {
-    .wrapper { width: 92%; padding-bottom: 80px; } /* More width on mobile */
-    .hud-bar { padding: 10px; font-size: 0.6rem; flex-wrap: wrap; justify-content: center; gap: 10px; text-align: center; }
-    .holo-card { padding: 20px; }
-    .btn-container { flex-direction: column; width: 100%; gap: 15px; }
-    .btn-main { width: 100%; text-align: center; padding: 15px; }
+    .hud-bar { flex-direction: column; gap: 10px; text-align: center; }
+    .holo-card { padding: 25px; }
+    .btn-container { flex-direction: column; width: 100%; gap: 20px; }
+    .btn-main { width: 100%; text-align: center; }
     .email-orb { bottom: 20px; right: 20px; width: 60px; height: 60px; }
     .email-orb svg { width: 30px; height: 30px; }
-    h1 { margin-top: 10px; }
   }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 </style>
@@ -312,19 +304,19 @@ order: 1
     </div>
   </section>
 
-  <div style="text-align: center; margin: 100px 0;">
+  <div class="nav-deck">
     <p style="font-family: 'Orbitron'; margin-bottom: 10px; color: #666; letter-spacing: 3px;">// SYSTEM NAVIGATION //</p>
     
     <div class="btn-container">
       <a href="/publications/" class="btn-main">
         ACCESS PUBLICATIONS
       </a>
+      
       <a href="/gallery/" class="btn-main btn-blue">
         VISUAL DATA (GALLERY)
       </a>
     </div>
 
-    <br><br>
     <p style="font-size: 0.8rem; color: #444; margin-top: 40px;">// END OF TRANSMISSION //</p>
   </div>
 
