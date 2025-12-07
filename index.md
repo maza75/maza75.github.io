@@ -37,16 +37,17 @@ order: 1
     display: inline-block;
     padding: 12px 24px;
     background-color: #003366; /* Dark Blue */
-    color: white !important;
+    color: white !important; /* Force text white */
     border-radius: 5px;
     font-weight: bold;
-    text-decoration: none !important;
+    text-decoration: none !important; /* No underline */
     transition: background-color 0.3s ease;
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .btn-pub:hover {
     background-color: #d35400; /* Turns Orange on Hover */
+    color: white !important;
     text-decoration: none;
   }
 </style>
@@ -78,7 +79,9 @@ My primary focus is **Observational Cosmology**. I employ both parametric and no
 ### 📜 Publications
 I have authored papers on dark energy interactions and model-independent reconstructions.
 
+<br>
 <a href="/publications/" class="btn-pub">View Full List of Publications →</a>
+<br>
 
 ---
 
