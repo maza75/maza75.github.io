@@ -1,11 +1,25 @@
-title: My Personal Portfolio
-author: [Your Name]
-email: your-email@domain.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. 
-  You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+title: Mazaharul Abedin
+author: Mazaharul Abedin
+email: mazaharul.rs@presiuniv.ac.in
+description: >-
+  Academic portfolio and personal website of Mazaharul Abedin. 
+  Researcher at Presidency University. Exploring physics, mathematics, and cosmology.
 
+# --- Technical Settings ---
+baseurl: "" # Keep this empty for user sites (maza75.github.io)
+url: "https://maza75.github.io" # Your actual website URL
+
+# --- Theme & Visuals ---
 theme: minima
+header_pages:
+  - about.md
+  - portfolio.md
+
+# --- Social Media (This adds icons to the footer) ---
+github_username: maza75
+# twitter_username: your_twitter_handle # Remove the '#' at start if you have one
+
+# --- Plugins ---
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
