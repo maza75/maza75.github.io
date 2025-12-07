@@ -103,7 +103,3 @@ I blend rigorous mathematics with modern computation. My workflow involves Bayes
 <span class="tech-tag">CLASS</span> <span class="tech-tag">MontePython</span> <span class="tech-tag">Cobaya</span> <span class="tech-tag">Colfi</span> <span class="tech-tag">emcee</span>
 
 ---
-
-### 📬 Contact Me
-* **Email:** [mazaharul.rs@presiuniv.ac.in](mailto:mazaharul.rs@presiuniv.ac.in)
-* **GitHub:** [github.com/maza75](https://github.com/maza75)
